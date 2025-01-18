@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+@layer base {
+  body {
+    @apply text-senary leading-relaxed font-sans;
+  }
+
+  h1 {
+    @apply text-3xl font-bold mb-4 mt-6 font-serif text-quinary;
+  }
+
+  h2 {
+    @apply text-2xl font-bold mb-3 mt-5 font-serif text-quinary;
+  }
+
+  h3 {
+    @apply text-xl font-bold mb-2 mt-4 font-serif text-quinary;
+  }
+
+  h4 {
+    @apply text-lg font-bold mb-2 mt-3 font-serif text-quinary;
+  }
+
+  h5 {
+    @apply text-base font-bold mb-2 mt-3 font-serif text-quinary;
+  }
+
+  h6 {
+    @apply text-sm font-bold mb-2 mt-3 font-serif text-quinary;
+  }
+
+  p {
+    @apply mb-4;
+  }
+
+  a {
+    @apply text-primary hover:text-secondary underline;
+  }
+
+  ul {
+    @apply list-disc list-inside mb-4 pl-4;
+  }
+
+  ol {
+    @apply list-decimal list-inside mb-4 pl-4;
+  }
+
+  li {
+    @apply mb-2;
+  }
+
+  blockquote {
+    @apply border-l-4 border-quaternary pl-4 italic my-4;
+  }
+
+  pre {
+    @apply bg-complementary-1 p-4 rounded-lg overflow-x-auto mb-4;
+  }
+
+  code {
+    @apply bg-complementary-1 px-1 py-0.5 rounded text-complementary-5;
+  }
+
+  img {
+    @apply max-w-full h-auto rounded-lg my-4;
+  }
+
+  table {
+    @apply w-full border-collapse mb-4;
+  }
+
+  th {
+    @apply bg-complementary-2 text-senary font-bold p-2 border border-complementary-3;
+  }
+
+  td {
+    @apply p-2 border border-complementary-3;
+  }
+
+  hr {
+    @apply my-8 border-t border-complementary-3;
+  }
+}
+
+/* You can add any additional custom styles below these directives */
+
+:root {
+  --primary: #19c5fa;
+  --secondary: #19c5fa;
+  --tertiary: #fff;
+  --quaternary: #4d3cad;
+  --quinary: #242547;
+  --senary: #715657;
+  --septenary: #a6c1d7;
+  --dark: #000;
+  --white: #fff;
+  --complementary-1: #fafafb;
+  --complementary-2: #7ec8c8;
+  --complementary-3: #43b0b0;
+  --complementary-4: #393a59;
+  --complementary-5: #007474;
+}
