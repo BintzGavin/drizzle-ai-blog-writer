@@ -115,6 +115,7 @@ This project requires the following environment variables:
 - `NEWS_API_KEY`: Your News API key for fetching trending stories
 - `CEREBRAS_API_KEY`: Your Cerebras API key for the Llama 3.1 model
 - `REPLICATE_API_TOKEN`: Your Replicate API token used for the Flux image model
+
 Make sure to set these in your `.env.local` file or in your deployment environment.
 
 ## 🚀 Getting Started
