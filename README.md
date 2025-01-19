@@ -100,7 +100,7 @@ try {
 }
 ```
 
-Currently, the system uses Llama 3.3 via only Cerebras for content generation, in order for the fastest possible generation times (near instant), but feel free to use the full chaining workflow in your own project by adding more agents to the `blogAgents` array.
+Currently, the system uses Llama 3.3 only via Cerebras for content generation, in order for the fastest possible inference times (~2100 tokens/s), but feel free to use the full chaining workflow in your own project by adding more agents to the `blogAgents` array.
 
 ## Environment Variables
 
@@ -111,7 +111,7 @@ This project requires the following environment variables:
 - `SENDGRID_API_KEY`: Your SendGrid API key for email functionality
 - `SENDGRID_FROM_EMAIL`: Your email address that will be used to send emails via SendGrid
 - `NEWS_API_KEY`: Your News API key for fetching trending stories
-- `CEREBRAS_API_KEY`: Your Cerebras API key for the Llama 3.3 model
+- `CEREBRAS_API_KEY`: Your Cerebras API key - You'll need to contact them via the [form on their website](https://cerebras.ai/contact-us/) to get access but they responded pretty quickly
 - `REPLICATE_API_TOKEN`: Your Replicate API token used for the Flux image model
 
 Make sure to set these in your `.env.local` file or in your deployment environment.
