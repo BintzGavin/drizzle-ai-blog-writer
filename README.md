@@ -3,11 +3,11 @@
   drizzle ai
 </h1>
 
-# 🚀 Next.js SEO Blog Post Generator with Agentic Workflow
+# 🚀 Next.js Blog Post Generator with Agentic Workflow
 
 [Demo Site](https://thedrizzleai.com)
 
-This is a [Next.js](https://nextjs.org/) project that generates SEO-optimized blog posts using an agentic workflow system. ✨
+This is a [Next.js](https://nextjs.org/) project that generates blog posts using an agentic workflow system. ✨
 
 ## 🌟 Project Overview
 
