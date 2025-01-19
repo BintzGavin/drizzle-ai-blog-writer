@@ -2,6 +2,7 @@
   <img src="public/randomlogo.png" alt="Alt Text" width="75" height="75" > <br />
   drizzle ai
 </h1>
+
 # 🚀 Next.js SEO Blog Post Generator with Agentic Workflow
 
 [Demo Site](https://thedrizzleai.com)
