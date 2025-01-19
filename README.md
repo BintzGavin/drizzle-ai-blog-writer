@@ -7,8 +7,6 @@
 
 [Demo Site](https://thedrizzleai.com)
 
-This is a [Next.js](https://nextjs.org/) project that generates blog posts using an agentic workflow system. ✨
-
 ## 🌟 Project Overview
 
 This project uses a functional approach to create an agentic workflow for generating blog posts and images. The term "agentic" here simply means that the system can chain multiple AI models together, with each model building upon and improving the output of the previous one. This allows for iterative refinement of the content quality. 🤖💡
