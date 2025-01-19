@@ -9,15 +9,27 @@ export function createWorkflow(imageAgent: ImageAgent, blogAgents: BlogAgent[]):
     
     const blogContentPromise = (async () => {
       let blogContent = '';
-      for (const blogAgent of blogAgents) {
-        blogContent = await blogAgent(keyword, blogContent);
-        console.log(blogContent);
+      const intermediateResults: { [key: string]: string } = {};
+
+      for (let i = 0; i < blogAgents.length; i++) {
+        const agent = blogAgents[i];
+        blogContent = await agent(keyword, blogContent);
+        if (i < blogAgents.length - 1) {
+          intermediateResults[`step${i + 1}`] = blogContent;
+        }
       }
-      return blogContent;
+      return { blogContent, intermediateResults };
     })();
 
-    const [imageUrl, blogContent] = await Promise.all([imageUrlPromise, blogContentPromise]);
-    console.log(imageUrl);
-    return { blogContent, imageUrl };
+    const [imageUrl, { blogContent, intermediateResults }] = await Promise.all([
+      imageUrlPromise, 
+      blogContentPromise
+    ]);
+
+    return { 
+      blogContent, 
+      imageUrl,
+      intermediateResults 
+    };
   };
 }
