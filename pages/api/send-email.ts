@@ -59,7 +59,7 @@ ${postContentMarkdown}`;
 
     let msg = {
       to: email,
-      from: "help@swirlwebdesign.com",
+      from: process.env.SENDGRID_FROM_EMAIL,
       subject: `Blog Generated for ${keyword}`,
       html: emailBody,
       attachments: [

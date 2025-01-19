@@ -6,33 +6,7 @@ export type BlogAgent = (
   previousContent?: string
 ) => Promise<string>;
 
-export function createBlogAgent(ai: OpenAI | Anthropic): BlogAgent {
-  return async (keyword, previousContent = "") => {
-    const prompt = generateSEOPrompt(keyword, previousContent);
 
-    if ("chat" in ai) {
-      // OpenAI
-      const completion = await ai.chat.completions.create({
-        model: "gpt-4o",
-        messages: [{ role: "user", content: prompt }],
-        temperature: 0.8,
-        max_tokens: 4096,
-      });
-      return completion.choices[0].message?.content || "";
-    } else {
-      // Anthropic
-      const completion = await ai.messages.create({
-        model: "claude-3-5-sonnet-20240620",
-        max_tokens: 4096,
-        temperature: 0.8,
-        messages: [{ role: "user", content: prompt }],
-      });
-      return completion.content[0].type === "text"
-        ? completion.content[0].text
-        : "";
-    }
-  };
-}
 
 export function createCerebrasBlogAgent(cerebrasClient: OpenAI): BlogAgent {
   return async (keyword, previousContent = "") => {
@@ -53,8 +27,38 @@ export function createCerebrasBlogAgent(cerebrasClient: OpenAI): BlogAgent {
   };
 }
 
+export function createOpenAIBlogAgent(ai: OpenAI): BlogAgent {
+  return async (keyword, previousContent = "") => {
+    const prompt = generateSEOPrompt(keyword, previousContent);
+
+    const completion = await ai.chat.completions.create({
+      model: "gpt-4o",
+      messages: [{ role: "user", content: prompt }],
+      temperature: 0.8,
+      max_tokens: 4096,
+    });
+    return completion.choices[0].message?.content || "";
+  };
+}
+
+export function createAnthropicBlogAgent(ai: Anthropic): BlogAgent {
+  return async (keyword, previousContent = "") => {
+    const prompt = generateSEOPrompt(keyword, previousContent);
+
+    const completion = await ai.messages.create({
+      model: "claude-3-5-sonnet-20240620",
+      max_tokens: 4096,
+      temperature: 0.8,
+      messages: [{ role: "user", content: prompt }],
+    });
+    return completion.content[0].type === "text"
+      ? completion.content[0].text
+      : "";
+  };
+}
+
 function generateSEOPrompt(keyword: string, previousContent: string): string {
-  const basePrompt = `Hey there! Create a unique and interesting blog post in formatted markdown about "${keyword}". Here's what I need:
+  const basePrompt = `Can you please create a unique and interesting blog post in formatted markdown about "${keyword}". Here's what we need:
 
     - Write a long, detailed response.
     - Use the style of a famous copywriter who writes engaging blogs.
@@ -67,20 +71,39 @@ function generateSEOPrompt(keyword: string, previousContent: string): string {
     - Use everyday examples to illustrate your points.
 
     To make the blog post sound more personal and less like an AI:
-    - Start with a surprising fact, personal anecdote, or thought-provoking question.
     - Avoid generic openings like "Let's start with the obvious" or "It's no secret that".
     - Use casual, conversational language as if chatting with a friend.
     - Share opinions or experiences that feel authentic and personal.
-    - Include specific examples or stories to illustrate points.
+    - Include real-world specific examples or stories to illustrate points.
     - Vary sentence structure to create a natural rhythm.
 
-    At the end of the article, subtly tie the topic into AI customer service. Mention Agent One (https://agnt.one) as an example of an AI customer service platform that's revolutionizing the industry. Make this connection feel natural and relevant to the article's content.
+    You should start the blog post with one of these engaging hooks:
+    - A surprising fact or statistic that challenges common assumptions
+    - A thought-provoking "what if" scenario or question
+    - A real-world story or case study that illustrates the topic
+    - A relevant quote from an expert or thought leader
+    - A common misconception or myth about the topic
+    - A compelling "before and after" scenario
+    - A day-in-the-life example that readers can relate to
+    - A recent news headline or trending topic related to the subject
+    - A historical anecdote that ties to the present
+    - A personal experience that many readers might share
+    - A provocative statement that makes readers think differently
+    - A comparison between two contrasting ideas
+
+    The opening should immediately grab attention and make readers want to learn more. Avoid generic or AI-like introductions such as:
+    - "In today's fast-paced world..."
+    - "Let's explore..."
+    - "In this blog post..."
+    - "It's no secret that..."
+    - "Have you ever wondered..."
+    - "In recent years..."
 
     Remember, write only the formatted markdown for the blog post. It should not be contained in a markdown backtick block. Thanks!`;
 
   if (!previousContent) {
     return basePrompt;
   } else {
-    return `Add to and improve the following blog post about ${keyword} based on the previous content:'''\n\n${previousContent}\n\n''' What were some phrases used that sound like they were written by an AI? Correct them. Rewrite the entire blog post to sound like a different person. Make sure the ending subtly ties into AI customer service and mentions Agent One (https://agnt.one) as an example of an innovative platform in this space. Please only respond with the formatted markdown for the blog post. It should not be contained in a markdown backtick block.`;
+    return `Can you please add to and improve the following blog post about ${keyword} based on the previous content:'''\n\n${previousContent}\n\n''' What were some phrases used that sound like they were written by an AI? Correct them. Rewrite the entire blog post to sound like a different person. Please only respond with the formatted markdown for the blog post. It should not be contained in a markdown backtick block. Thank you!`;
   }
 }

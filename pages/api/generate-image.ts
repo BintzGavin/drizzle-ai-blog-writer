@@ -1,15 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import OpenAI from "openai";
 import Replicate from "replicate";
 import {
   createDalleImageAgent,
   createFluxImageAgent,
 } from "../../lib/agents/imageAgent";
-import saveLocalCopy from "./save-local-copy";
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
 
 const replicate = new Replicate({
   auth: process.env.REPLICATE_API_TOKEN,
