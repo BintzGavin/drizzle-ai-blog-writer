@@ -14,7 +14,7 @@ export function createCerebrasBlogAgent(cerebrasClient: OpenAI): BlogAgent {
 
     try {
       const completion = await cerebrasClient.chat.completions.create({
-        model: "llama3.1-70b",
+        model: "llama3.3-70b",
         messages: [{ role: "user", content: prompt }],
         temperature: 0.8,
         max_tokens: 4096,

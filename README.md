@@ -16,7 +16,7 @@ This project uses a functional approach to create an agentic workflow for genera
 
 Key features:
 - 🖼️ Image generation using Flux (via [Replicate](https://replicate.com/))
-- ✍️ Blog content creation combining multiple AI models (Llama 3.1 via [Cerebras AI](https://cerebras.ai/), GPT-4 and Claude 3.5 Sonnet)
+- ✍️ Blog content creation combining multiple AI models (llama-3.3-70b via [Cerebras AI](https://cerebras.ai/), GPT-4o and Claude 3.5 Sonnet)
 - 🔄 Iterative content improvement through response chaining
 - 🧩 Functional programming approach for flexibility and testability
 - 📈 Trending stories integration via [News API](https://newsapi.org/)
@@ -60,7 +60,7 @@ The project uses a modular structure with separate functions for image generatio
 ### Agentic Workflow
 
 One sample agentic workflow operates is as follows:
-1. Llama 3.1 creates the initial blog draft
+1. Llama 3.3 creates the initial blog draft
 2. GPT-4 refines and improves that draft
 3. Claude 3.5 Sonnet makes final improvements
 4. Flux generates an image for the blog post (in parallel)
@@ -102,7 +102,7 @@ try {
 }
 ```
 
-Currently, the system uses Llama 3.1 via only Cerebras for content generation, in order for the fastest possible generation times (near instant), but feel free to use the full chaining workflow in your own project by adding more agents to the `blogAgents` array.
+Currently, the system uses Llama 3.3 via only Cerebras for content generation, in order for the fastest possible generation times (near instant), but feel free to use the full chaining workflow in your own project by adding more agents to the `blogAgents` array.
 
 ## Environment Variables
 
@@ -113,7 +113,7 @@ This project requires the following environment variables:
 - `SENDGRID_API_KEY`: Your SendGrid API key for email functionality
 - `SENDGRID_FROM_EMAIL`: Your email address that will be used to send emails via SendGrid
 - `NEWS_API_KEY`: Your News API key for fetching trending stories
-- `CEREBRAS_API_KEY`: Your Cerebras API key for the Llama 3.1 model
+- `CEREBRAS_API_KEY`: Your Cerebras API key for the Llama 3.3 model
 - `REPLICATE_API_TOKEN`: Your Replicate API token used for the Flux image model
 
 Make sure to set these in your `.env.local` file or in your deployment environment.
@@ -189,7 +189,7 @@ To learn more about the technologies used in this project:
 
 ## 👨‍💻 Author
 
-Gavin Bintz - [gavinbintz.dev](https://gavinbintz.dev)
+Gavin Bintz ([@bintz_gavin](https://x.com/bintz_gavin) - [gavinbintz.dev](https://gavinbintz.dev))
 
 ## 📜 License
 
