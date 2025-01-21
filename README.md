@@ -14,7 +14,7 @@ This project uses a functional approach to create an agentic workflow for genera
 
 Key features:
 - 🖼️ Image generation using Flux (via [Replicate](https://replicate.com/))
-- ✍️ Blog content creation combining multiple AI models (llama-3.3-70b via [Cerebras AI](https://cerebras.ai/), GPT-4o and Claude 3.5 Sonnet)
+- ✍️ Blog content creation combining multiple AI models (llama-3.3-70b via [Cerebras AI](https://cloud.cerebras.ai/), GPT-4o and Claude 3.5 Sonnet)
 - 🔄 Iterative content improvement through response chaining
 - 🧩 Functional programming approach for flexibility and testability
 - 📈 Trending stories integration via [News API](https://newsapi.org/)
