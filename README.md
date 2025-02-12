@@ -1,7 +1,4 @@
-<h1 align="center">
-  <img src="public/randomlogo.png" alt="Alt Text" width="75" height="75" > <br />
-  drizzle ai
-</h1>
+<img src="public/banner.png" alt="Alt Text" width="100%" height="auto" > 
 
 # 🚀 Next.js Blog Post Generator with Agentic Workflow
 
