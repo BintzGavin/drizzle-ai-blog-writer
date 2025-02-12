@@ -9,7 +9,7 @@
 
 ## 🌟 Project Overview
 
-This project uses a dead simple approach to create an agentic workflow for generating blog posts and images. The point of this project was to show you don't need fancy libraries or frameworks to orchestrate these kinds of workflows, under the hood the core concepts are relatively simple. The term "agentic" here simply means that the system is a workflow with the first part being a call to a News API to gather recent stories around the base topic. chain of multiple AI model inference calls, with each model building upon and improving the output of the previous one.
+This project uses a dead simple approach to create an agentic workflow for generating blog posts and images. The point of this project was to show you don't need fancy libraries or frameworks to orchestrate these kinds of workflows, under the hood the core concepts are relatively simple. The term "agentic" here simply means that the system is a workflow with the first part being a call to a News API to gather recent stories around the base topic. Then a call to an LLM to generate possible blog titles, with the recent news around the topic being passed as context. Then a chain of LLM calls, with each model building upon and improving the output of the previous one.
 
 
 Key features:
