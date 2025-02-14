@@ -99,7 +99,7 @@ try {
 }
 ```
 
-Currently, the system uses Llama 3.3 only via Cerebras for content generation, in order for the fastest possible inference times (~2100 tokens/s), but feel free to use the full chaining workflow in your own project by adding more agents to the `blogAgents` array.
+Currently, the demo site is only making a single Llama 3.3 call via Cerebras for the blog generation, in order to save $$ and for the fastest possible inference times (~2100 tokens/s), but feel free to use the full chaining workflow in your own local fork by adding more agents to the `blogAgents` array.
 
 ## Environment Variables
 
